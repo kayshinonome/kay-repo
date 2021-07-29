@@ -37,5 +37,5 @@ src_compile() {
 }
 
 src_install() {
-    make Q= STRIP= DESTDIR="${D}" mandir=/usr/share/man install || die
+    emake Q= STRIP= DESTDIR="${D}" PREFIX=/usr mandir=/usr/share/man install || die
 }
