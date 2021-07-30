@@ -12,8 +12,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RESTRICT="strip"
-
 inherit toolchain-funcs
 inherit xdg
 
