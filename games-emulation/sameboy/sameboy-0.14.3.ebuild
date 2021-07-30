@@ -9,11 +9,17 @@ SRC_URI="https://github.com/LIJI32/${PN}/archive/refs/tags/v${PV}.tar.gz"
 LICENSE="MIT"
 
 SLOT="0"
-KEYWORDS="#amd64"
+KEYWORDS="~amd64"
 IUSE=""
+
+RESTRICT="strip"
+
+inherit toolchain-funcs
+inherit xdg
 
 RDEPEND="
 	media-libs/libsdl2:=
+	virtual/opengl
 "
 DEPEND="${RDEPEND}
 	dev-lang/rgbds
@@ -24,9 +30,14 @@ src_unpack() {
 }
 
 src_compile() {
-	emake Q= || die
+	emake DESTDIR="${D}" PREFIX=/usr CC="$(tc-getCC)" || die
 }
 
 src_install() {
-	emake Q= STRIP= DESTDIR="${D}" PREFIX=/usr mandir=/usr/share/man install || die
+	emake DESTDIR="${D}" PREFIX=/usr mandir=/usr/share/man install || die
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+	xdg_icon_cache_update
 }
