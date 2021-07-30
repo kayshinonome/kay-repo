@@ -20,7 +20,7 @@ DEPEND="${RDEPEND}
 "
 src_unpack() {
 	default
-	mv "${WORKDIR}/${PN}" "${WORKDIR}/${P}"
+	mv "${WORKDIR}/SameBoy-${PV}" "${WORKDIR}/${P}"
 }
 
 src_compile() {
