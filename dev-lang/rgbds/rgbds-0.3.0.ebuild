@@ -15,11 +15,15 @@ IUSE=""
 RDEPEND="
 	media-libs/libpng:=
 "
+
 DEPEND="${RDEPEND}
 	virtual/yacc
 	sys-devel/flex
 	virtual/pkgconfig
 "
+
+RESTRICT="mirror"
+
 src_unpack() {
 	default
 	mv "${WORKDIR}/${PN}" "${WORKDIR}/${P}"
