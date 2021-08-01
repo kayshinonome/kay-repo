@@ -625,7 +625,7 @@ DESCRIPTION="The command line version of virustotal."
 HOMEPAGE="https://virustotal.github.io/vt-cli/"
 SRC_URI="https://github.com/VirusTotal/vt-cli/archive/${PV}.tar.gz -> ${P}.tar.gz
             ${EGO_SUM_SRC_URI}"
-LICENSE="Apache-2.0"
+LICENSE="Apache-2.0 BSD-2-Clause BSD-3-Clause MIT MPL-2.0"
 
 SLOT="0"
 KEYWORDS="~amd64"

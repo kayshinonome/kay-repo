@@ -9,7 +9,9 @@ SRC_URI="https://github.com/LIJI32/${PN}/archive/refs/tags/v${PV}.tar.gz"
 LICENSE="MIT"
 
 SLOT="0"
-KEYWORDS="~amd64"
+
+# Check the changelog for https://github.com/LIJI32/SameBoy/releases/tag/v0.14.5 for more info
+KEYWORDS="#amd64"
 IUSE=""
 
 inherit toolchain-funcs
