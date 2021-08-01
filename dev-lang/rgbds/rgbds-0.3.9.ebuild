@@ -10,22 +10,18 @@ LICENSE="MIT"
 
 SLOT="0"
 
-# Marked as mostly unusable on the website, but ill include it anyway
+# Same as 3.10, but with a bug
 KEYWORDS="#amd64 #x86"
 IUSE=""
 
 RDEPEND="
 	media-libs/libpng:=
 "
-
 DEPEND="${RDEPEND}
 	virtual/yacc
 	sys-devel/flex
 	virtual/pkgconfig
 "
-
-RESTRICT="mirror"
-
 src_unpack() {
 	default
 	mv "${WORKDIR}/${PN}" "${WORKDIR}/${P}"
