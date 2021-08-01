@@ -20,6 +20,9 @@ DEPEND="${RDEPEND}
 	sys-devel/flex
 	virtual/pkgconfig
 "
+
+RESTRICT="mirror"
+
 src_unpack() {
 	default
 	mv "${WORKDIR}/${PN}" "${WORKDIR}/${P}"
