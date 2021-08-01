@@ -22,9 +22,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-lang/rgbds
 "
-
-RESTRICT="mirror"
-
 src_unpack() {
 	default
 	mv "${WORKDIR}/SameBoy-${PV}" "${WORKDIR}/${P}"
