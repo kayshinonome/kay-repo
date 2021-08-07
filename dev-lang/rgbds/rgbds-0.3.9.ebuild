@@ -11,7 +11,7 @@ LICENSE="MIT"
 SLOT="0"
 
 # Same as 3.10, but with a bug
-KEYWORDS="#amd64 #x86"
+KEYWORDS="#amd64  "
 IUSE=""
 
 RDEPEND="
