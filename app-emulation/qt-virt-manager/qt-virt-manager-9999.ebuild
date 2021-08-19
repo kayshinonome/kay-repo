@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="A GUI application for managing virtual machines."
 HOMEPAGE="http://f1ash.github.io/qt-virt-manager"
-SRC_URI="https://github.com/F1ash/${PN}.git"
+EGIT_REPO_URI="https://github.com/F1ash/${PN}.git"
 LICENSE="GPL-2"
 
 SLOT="0"
