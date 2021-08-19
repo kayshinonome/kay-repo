@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="Free assembler/linker package for the Game Boy and Game Boy Color"
-HOMEPAGE="https://rednex.github.io/rgbds/"
+HOMEPAGE="https://rgbds.gbdev.io/"
 EGIT_REPO_URI="https://github.com/rednex/${PN}.git"
 LICENSE="MIT"
 
