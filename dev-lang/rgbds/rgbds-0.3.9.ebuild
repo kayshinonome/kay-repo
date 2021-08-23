@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="Free assembler/linker package for the Game Boy and Game Boy Color"
 HOMEPAGE="https://rgbds.gbdev.io/"
-SRC_URI="https://github.com/rednex/${PN}/releases/download/v${PV}/${P}.tar.gz"
+SRC_URI="https://github.com/rednex/rgbds/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 
 SLOT="0"
@@ -25,10 +25,7 @@ DEPEND="${RDEPEND}
 
 RESTRICT="mirror"
 
-src_unpack() {
-	default
-	mv "${WORKDIR}/${PN}" "${WORKDIR}/${P}"
-}
+S="${WORKDIR}/${PN}"
 
 src_compile() {
 	emake Q= || die

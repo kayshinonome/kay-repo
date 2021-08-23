@@ -25,10 +25,7 @@ DEPEND="${RDEPEND}
 
 RESTRICT="mirror"
 
-src_unpack() {
-	default
-	mv "${WORKDIR}/SameBoy-${PV}" "${WORKDIR}/${P}"
-}
+S="${WORKDIR}/SameBoy-${PV}"
 
 src_compile() {
 	emake DESTDIR="${D}" PREFIX=/usr CC="$(tc-getCC)" || die
