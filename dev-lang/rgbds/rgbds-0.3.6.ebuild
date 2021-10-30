@@ -23,7 +23,7 @@ DEPEND="${RDEPEND}
 
 RESTRICT="mirror"
 
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}/rgbds-${PV}"
 
 src_compile() {
 	emake Q= || die
