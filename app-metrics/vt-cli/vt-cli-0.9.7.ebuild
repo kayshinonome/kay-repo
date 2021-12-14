@@ -1,7 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
-# Distributed under the terms of the GNU General Public License v2
-
-EAPI=7
+EAPI=8
 
 inherit go-module
 
@@ -622,7 +619,7 @@ go-module_set_globals
 
 DESCRIPTION="The command line version of virustotal."
 HOMEPAGE="https://virustotal.github.io/vt-cli/"
-SRC_URI="https://github.com/VirusTotal/vt-cli/archive/${PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://github.com/VirusTotal/vt-cli/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
             ${EGO_SUM_SRC_URI}"
 LICENSE="Apache-2.0 BSD-2-Clause BSD-3-Clause MIT MPL-2.0"
 

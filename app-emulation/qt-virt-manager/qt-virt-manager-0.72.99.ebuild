@@ -1,7 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
-# Distributed under the terms of the GNU General Public License v2
-
-EAPI=7
+EAPI=8
 
 DESCRIPTION="A GUI application for managing virtual machines."
 HOMEPAGE="http://f1ash.github.io/qt-virt-manager"
@@ -15,7 +12,7 @@ inherit cmake
 inherit xdg
 
 IUSE="
-	spice 
+	spice
 	smartcard
 	vnc
 	lxc

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>kayshinonome@protonmail.com</email>
+        <name>Kay Shinonome</name>
+    </maintainer>
+    <use>
+        <flag name="spice">Adds Spice protocol support</flag>
+        <flag name="lxc">Support management of Linux Containers virtualisation (app-emulation/lxc)</flag>
+    </use>
+</pkgmetadata>
