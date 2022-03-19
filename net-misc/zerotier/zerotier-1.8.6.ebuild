@@ -17,7 +17,7 @@ RDEPEND="
 	clang? ( >=sys-devel/clang-6:* )"
 DEPEND="${RDEPEND}"
 PATCHES=(
-	"${FILESDIR}/${PN}-1.4.6-respect-ldflags.patch"
+	"${FILESDIR}/${PN}-1.8.6-respect-ldflags.patch"
 )
 DOCS=( README.md AUTHORS.md )
 LLVM_MAX_SLOT=11
