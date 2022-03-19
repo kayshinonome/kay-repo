@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 EAPI=7
 
-inherit flag-o-matic llvm systemd toolchain-funcs cargo
+inherit flag-o-matic llvm systemd toolchain-funcs
 
 HOMEPAGE="https://www.zerotier.com/"
 
@@ -32,17 +32,17 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.8.6-fix-build-system.patch"
 )
 
-DOCS=( README.md AUTHORS.md )
+DOCS=(README.md AUTHORS.md)
 
 LLVM_MAX_SLOT=11
 
 llvm_check_deps() {
-	if use clang ; then
-		if ! has_version --host-root "sys-devel/clang:${LLVM_SLOT}" ; then
+	if use clang; then
+		if ! has_version --host-root "sys-devel/clang:${LLVM_SLOT}"; then
 			ewarn "sys-devel/clang:${LLVM_SLOT} is missing! Cannot use LLVM slot ${LLVM_SLOT} ..."
 			return 1
 		fi
-		if ! has_version --host-root "=sys-devel/lld-${LLVM_SLOT}*" ; then
+		if ! has_version --host-root "=sys-devel/lld-${LLVM_SLOT}*"; then
 			ewarn "=sys-devel/lld-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..."
 			return 1
 		fi
@@ -51,7 +51,7 @@ llvm_check_deps() {
 }
 
 pkg_setup() {
-	if use clang && ! tc-is-clang ; then
+	if use clang && ! tc-is-clang; then
 		export CC=${CHOST}-clang
 		export CXX=${CHOST}-clang++
 	else
@@ -61,10 +61,6 @@ pkg_setup() {
 
 src_compile() {
 	append-ldflags -Wl,-z,noexecstack
-
-	cd zeroidc
-	cargo_src_unpack
-	cd ..
 
 	emake CXX="${CXX}" STRIP=: one
 }

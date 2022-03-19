@@ -1,5 +1,5 @@
 diff --git a/make-linux.mk b/make-linux.mk
-index c5daa0b3..e822eeac 100644
+index c5daa0b3..01c24bc1 100644
 --- a/make-linux.mk
 +++ b/make-linux.mk
 @@ -70,7 +70,7 @@ else
@@ -11,12 +11,13 @@ index c5daa0b3..e822eeac 100644
  	RUSTFLAGS=--release
  endif
  
-@@ -386,7 +386,7 @@ debug:	FORCE
- ifeq ($(ZT_SSO_SUPPORTED), 1)
- zeroidc:	FORCE
- #	export PATH=/root/.cargo/bin:$$PATH; cd zeroidc && cargo build -j1 $(RUSTFLAGS)
--	export PATH=/root/.cargo/bin:$$PATH; cd zeroidc && cargo build $(RUSTFLAGS)
-+#	export PATH=/root/.cargo/bin:$$PATH; cd zeroidc && cargo build $(RUSTFLAGS)
- else
- zeroidc:
+@@ -250,6 +250,9 @@ ifeq ($(CC_MACH),riscv64)
+ 	ZT_ARCHITECTURE=0
  endif
+ 
++# Going to disable this for now.... sorry everyone
++ZT_SSO_SUPPORTED=0
++
+ # Fail if system architecture could not be determined
+ ifeq ($(ZT_ARCHITECTURE),999)
+ ERR=$(error FATAL: architecture could not be determined from $(CC) -dumpmachine: $CC_MACH)
