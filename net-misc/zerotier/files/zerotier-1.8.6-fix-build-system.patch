@@ -21,3 +21,17 @@ index c5daa0b3..01c24bc1 100644
  # Fail if system architecture could not be determined
  ifeq ($(ZT_ARCHITECTURE),999)
  ERR=$(error FATAL: architecture could not be determined from $(CC) -dumpmachine: $CC_MACH)
+diff --git a/node/Constants.hpp b/node/Constants.hpp
+index 930c9129..9ddb43ec 100644
+--- a/node/Constants.hpp
++++ b/node/Constants.hpp
+@@ -52,7 +52,8 @@
+ #include <endian.h>
+ 
+ #if (defined(__amd64) || defined(__amd64__) || defined(__x86_64) || defined(__x86_64__) || defined(__AMD64) || defined(__AMD64__) || defined(_M_X64) || defined(__aarch64__))
+-#define OIDC_SUPPORTED 1
++// Disabling whatever this thing is.....
++#define OIDC_SUPPORTED 0
+ #else
+ #define OIDC_SUPPORTED 0
+ #endif
