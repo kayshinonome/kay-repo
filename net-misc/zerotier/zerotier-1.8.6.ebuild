@@ -1,26 +1,41 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 EAPI=7
-inherit flag-o-matic llvm systemd toolchain-funcs
+
+inherit flag-o-matic llvm systemd toolchain-funcs cargo
+
 HOMEPAGE="https://www.zerotier.com/"
+
 DESCRIPTION="A software-based managed Ethernet switch for planet Earth"
+
 SRC_URI="https://github.com/zerotier/ZeroTierOne/archive/${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="BSL-1.1"
+
 SLOT="0"
+
 KEYWORDS="~amd64 ~x86"
+
 IUSE="clang"
+
 S="${WORKDIR}/ZeroTierOne-${PV}"
+
 RDEPEND="
 	dev-libs/json-glib
 	net-libs/libnatpmp
 	net-libs/miniupnpc:=
 	clang? ( >=sys-devel/clang-6:* )"
+
 DEPEND="${RDEPEND}"
+
 PATCHES=(
-	"${FILESDIR}/${PN}-1.8.6-respect-ldflags.patch"
+	"${FILESDIR}/${PN}-1.8.6-fix-build-system.patch"
 )
+
 DOCS=( README.md AUTHORS.md )
+
 LLVM_MAX_SLOT=11
+
 llvm_check_deps() {
 	if use clang ; then
 		if ! has_version --host-root "sys-devel/clang:${LLVM_SLOT}" ; then
@@ -34,6 +49,7 @@ llvm_check_deps() {
 		einfo "Will use LLVM slot ${LLVM_SLOT}!"
 	fi
 }
+
 pkg_setup() {
 	if use clang && ! tc-is-clang ; then
 		export CC=${CHOST}-clang
@@ -42,14 +58,17 @@ pkg_setup() {
 		tc-export CXX CC
 	fi
 }
+
 src_compile() {
 	append-ldflags -Wl,-z,noexecstack
 	emake CXX="${CXX}" STRIP=: one
 }
+
 src_test() {
 	emake selftest
 	./zerotier-selftest || die
 }
+
 src_install() {
 	default
 	# remove pre-zipped man pages

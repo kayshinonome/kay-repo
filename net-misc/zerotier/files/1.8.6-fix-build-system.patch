@@ -1,5 +1,5 @@
 diff --git a/make-linux.mk b/make-linux.mk
-index c5daa0b3..714c19b5 100644
+index c5daa0b3..e822eeac 100644
 --- a/make-linux.mk
 +++ b/make-linux.mk
 @@ -70,7 +70,7 @@ else
@@ -9,4 +9,14 @@ index c5daa0b3..714c19b5 100644
 -	LDFLAGS=-pie -Wl,-z,relro,-z,now
 +	LDFLAGS?=-pie -Wl,-z,relro,-z,now
  	RUSTFLAGS=--release
+ endif
+ 
+@@ -386,7 +386,7 @@ debug:	FORCE
+ ifeq ($(ZT_SSO_SUPPORTED), 1)
+ zeroidc:	FORCE
+ #	export PATH=/root/.cargo/bin:$$PATH; cd zeroidc && cargo build -j1 $(RUSTFLAGS)
+-	export PATH=/root/.cargo/bin:$$PATH; cd zeroidc && cargo build $(RUSTFLAGS)
++#	export PATH=/root/.cargo/bin:$$PATH; cd zeroidc && cargo build $(RUSTFLAGS)
+ else
+ zeroidc:
  endif
