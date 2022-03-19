@@ -64,7 +64,8 @@ src_compile() {
 
 	cd zeroidc
 	cargo_src_unpack
-	
+	cd ..
+
 	emake CXX="${CXX}" STRIP=: one
 }
 
