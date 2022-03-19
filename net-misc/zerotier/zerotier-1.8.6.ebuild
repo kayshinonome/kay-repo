@@ -61,6 +61,10 @@ pkg_setup() {
 
 src_compile() {
 	append-ldflags -Wl,-z,noexecstack
+
+	cd zeroidc
+	cargo_src_unpack
+	
 	emake CXX="${CXX}" STRIP=: one
 }
 
