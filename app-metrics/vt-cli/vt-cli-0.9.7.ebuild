@@ -1,10 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-
 EAPI=8
-
 inherit go-module
-
 EGO_SUM=(
 	"cloud.google.com/go v0.26.0"
 	"cloud.google.com/go v0.34.0"
@@ -617,26 +614,19 @@ EGO_SUM=(
 	"honnef.co/go/tools v0.0.1-2019.2.3/go.mod"
 	"rsc.io/binaryregexp v0.2.0/go.mod"
 )
-
 go-module_set_globals
-
 DESCRIPTION="The command line version of virustotal."
 HOMEPAGE="https://virustotal.github.io/vt-cli/"
 SRC_URI="https://github.com/VirusTotal/vt-cli/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
             ${EGO_SUM_SRC_URI}"
 LICENSE="Apache-2.0 BSD-2-Clause BSD-3-Clause MIT MPL-2.0"
-
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
-
 RESTRICT="mirror"
-
 RDEPEND=""
 DEPEND="${RDEPEND}"
-
 src_install() {
 	dobin build/vt
 }
-
 S="${WORKDIR}/vt-cli-${PV}"
