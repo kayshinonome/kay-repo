@@ -1,3 +1,6 @@
+# Copyright 1999-2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
 EAPI=8
 
 DESCRIPTION="SameBoy is an open source Game Boy (DMG) and Game Boy Color (CGB) emulator"
@@ -6,7 +9,7 @@ EGIT_REPO_URI="https://github.com/LIJI32/${PN}.git"
 LICENSE="MIT"
 
 SLOT="0"
-KEYWORDS="#amd64"
+KEYWORDS="~amd64"
 IUSE=""
 
 inherit toolchain-funcs
