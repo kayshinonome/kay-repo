@@ -1,4 +1,3 @@
-# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 EAPI=8
 DESCRIPTION="A GUI application for managing virtual machines."
@@ -20,7 +19,7 @@ RDEPEND="
 	spice? ( app-emulation/spice )
 	smartcard? ( app-emulation/spice[smartcard] app-emulation/libcacard )
 	vnc? ( net-libs/libvncserver )
-	lxc? ( app-emulation/lxc )
+	lxc? ( app-containers/lxc )
 	kde? ( kde-apps/krdc )
 	dev-qt/qtmultimedia
 	dev-qt/qtsvg

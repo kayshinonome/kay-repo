@@ -1,5 +1,5 @@
-# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
 EAPI=8
 DESCRIPTION="Free assembler/linker package for the Game Boy and Game Boy Color"
 HOMEPAGE="https://rgbds.gbdev.io/"
@@ -22,5 +22,5 @@ src_compile() {
 	emake Q= || die
 }
 src_install() {
-	emake Q= STRIP= DESTDIR="${D}" PREFIX=/usr mandir=/usr/share/man install || die
+	emake Q= STRIP= DESTDIR="${ED}" PREFIX=/usr mandir=/usr/share/man install || die
 }
