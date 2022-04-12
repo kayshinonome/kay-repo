@@ -16,7 +16,7 @@ SLOT="0"
 
 KEYWORDS="~amd64 ~x86"
 
-IUSE="clang upnp"
+IUSE="clang +upnp"
 
 S="${WORKDIR}/ZeroTierOne-${PV}"
 
