@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 
 IUSE="clang"
 
-inherit toolchain-funcs xdg
+inherit toolchain-funcs xdg llvm
 
 RDEPEND="
 	media-libs/libsdl2:=

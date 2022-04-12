@@ -15,7 +15,7 @@ KEYWORDS=""
 
 IUSE="clang"
 
-inherit toolchain-funcs xdg git-r3
+inherit toolchain-funcs xdg git-r3 llvm
 
 RDEPEND="
 	media-libs/libsdl2:=
