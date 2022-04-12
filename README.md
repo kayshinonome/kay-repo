@@ -1,7 +1,8 @@
 # Kay-Repo
 
-This is a gentoo repo for some ebuilds I couldn't find anywhere else.
+This is a gentoo overlay for some ebuilds I couldn't find anywhere else.
 
+The most important one is zerotier, which I use constantly
 
 ## Adding:
 
