@@ -16,25 +16,30 @@ SLOT="0"
 
 KEYWORDS="~amd64 ~x86"
 
-IUSE="clang"
+IUSE="clang upnp"
 
 S="${WORKDIR}/ZeroTierOne-${PV}"
 
 RDEPEND="
 	dev-libs/json-glib
 	net-libs/libnatpmp
-	net-libs/miniupnpc:=
+	net-libs/http-parser:=
+	upnp? ( =net-libs/miniupnpc-2*:= )
 	clang? ( >=sys-devel/clang-6:* )"
 
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-1.8.6-fix-build-system.patch"
+	"${FILESDIR}/0001-force-dynamic-miniupnpc-linkage.patch"
+	"${FILESDIR}/0002-force-dynamic-natpmp-linkage.patch"
+	"${FILESDIR}/0003-force-dynamic-http-parser-linkage.patch"
+	"${FILESDIR}/0004-disable-sso.patch"
+	"${FILESDIR}/0005-respect-ld-flags.patch"
 )
 
 DOCS=(README.md AUTHORS.md)
 
-LLVM_MAX_SLOT=11
+LLVM_MAX_SLOT=14
 
 llvm_check_deps() {
 	if use clang; then
@@ -58,10 +63,15 @@ pkg_setup() {
 		tc-export CXX CC
 	fi
 
+	if use upnp; then
+		export ZT_USE_MINIUPNPC=1
+	fi
+
 	ewarn "Disabling One Sign in for zerotier due to toolchain issues"
 }
 
 src_compile() {
+
 	append-ldflags -Wl,-z,noexecstack
 	emake CXX="${CXX}" STRIP=: one
 }
@@ -73,6 +83,7 @@ src_test() {
 
 src_install() {
 	default
+
 	# remove pre-zipped man pages
 	rm "${ED}"/usr/share/man/{man1,man8}/* || die
 	newinitd "${FILESDIR}/${PN}".init-r1 "${PN}"

@@ -1,0 +1,32 @@
+From 997a2f0582b663cedf7b879d1e60f93dfa8c8a57 Mon Sep 17 00:00:00 2001
+From: Kay Shinonome <kayshinonome@protonmail.com>
+Date: Tue, 12 Apr 2022 03:39:42 -0500
+Subject: [PATCH 2/5] force-dynamic-natpmp-linkage
+
+---
+ make-linux.mk | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
+
+diff --git a/make-linux.mk b/make-linux.mk
+index 50107b7e..ab79432a 100644
+--- a/make-linux.mk
++++ b/make-linux.mk
+@@ -39,12 +39,9 @@ ifeq ($(ZT_USE_MINIUPNPC),1)
+ 	DLIBS+=-lminiupnpc
+ endif
+ 
+-ifeq ($(wildcard /usr/include/natpmp.h),)
+-	ONE_OBJS+=ext/libnatpmp/natpmp.o ext/libnatpmp/getgateway.o
+-else
+-	LDLIBS+=-lnatpmp
+-	override DEFS+=-DZT_USE_SYSTEM_NATPMP
+-endif
++# We have to use natpmp here
++LDLIBS+=-lnatpmp
++override DEFS+=-DZT_USE_SYSTEM_NATPMP
+ 
+ # Use bundled http-parser since distribution versions are NOT API-stable or compatible!
+ # Trying to use dynamically linked libhttp-parser causes tons of compatibility problems.
+-- 
+2.35.1
+
