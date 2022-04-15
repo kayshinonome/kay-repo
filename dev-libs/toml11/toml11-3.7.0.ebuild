@@ -24,7 +24,3 @@ DEPEND="${RDEPEND}"
 RESTRICT="mirror"
 
 S="${WORKDIR}/toml11-${PV}"
-
-src_prepare() {
-	cmake_src_prepare
-}
