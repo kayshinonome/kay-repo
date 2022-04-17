@@ -1,0 +1,34 @@
+From e9703cbc6d4a4d18c08338cd99ce5ccdf04826c7 Mon Sep 17 00:00:00 2001
+From: Kay Shinonome <kayshinonome@protonmail.com>
+Date: Fri, 15 Apr 2022 04:32:43 -0500
+Subject: [PATCH] fix lxb_css_stylesheet_create casting error
+
+---
+ source/lexbor/css/stylesheet.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/source/lexbor/css/stylesheet.h b/source/lexbor/css/stylesheet.h
+index d7034d9..86bd93d 100644
+--- a/source/lexbor/css/stylesheet.h
++++ b/source/lexbor/css/stylesheet.h
+@@ -17,7 +17,7 @@ struct lxb_css_stylesheet {
+     lxb_css_node_t node;
+ 
+     lexbor_mraw_t  *mraw;
+-};
++}
+ 
+ 
+ /*
+@@ -30,7 +30,7 @@ lxb_css_stylesheet_create(lexbor_mraw_t *mraw)
+ //        mraw =
+ //    }
+ 
+-    return lexbor_mraw_calloc(mraw, sizeof(lxb_css_stylesheet_t));
++    return (lxb_css_stylesheet_t *) lexbor_mraw_calloc(mraw, sizeof(lxb_css_stylesheet_t));
+ }
+ 
+ 
+-- 
+2.35.1
+
