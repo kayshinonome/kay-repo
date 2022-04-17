@@ -24,10 +24,10 @@ RDEPEND="
 	dev-libs/json-glib
 	net-libs/libnatpmp
 	net-libs/http-parser:=
-	upnp? ( =net-libs/miniupnpc-2*:= )
-	clang? ( >=sys-devel/clang-6:* )"
+	upnp? ( =net-libs/miniupnpc-2*:= )"
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	clang? ( >=sys-devel/clang-6:* )"
 
 PATCHES=(
 	"${FILESDIR}/0001-force-dynamic-miniupnpc-linkage.patch"

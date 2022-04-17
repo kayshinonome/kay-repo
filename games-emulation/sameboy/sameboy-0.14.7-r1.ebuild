@@ -19,10 +19,10 @@ inherit toolchain-funcs xdg llvm
 
 RDEPEND="
 	media-libs/libsdl2:=
-	virtual/opengl
-    dev-lang/rgbds"
+	virtual/opengl"
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+    dev-lang/rgbds"
 
 RESTRICT="mirror"
 

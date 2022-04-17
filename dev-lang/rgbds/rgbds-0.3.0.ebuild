@@ -23,8 +23,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	virtual/yacc
 	sys-devel/flex
-	virtual/pkgconfig
-"
+	virtual/pkgconfig"
 
 RESTRICT="mirror"
 
