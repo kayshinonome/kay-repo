@@ -36,7 +36,7 @@ LICENSE="Apache-2.0 MIT Unlicense"
 
 SLOT="0"
 
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 IUSE=""
 
