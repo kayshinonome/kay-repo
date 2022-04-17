@@ -12,6 +12,3 @@ RDEPEND=""
 DEPEND="${RDEPEND}"
 RESTRICT="mirror"
 S="${WORKDIR}/controlxlinux-${PV}"
-src_prepare() {
-	cmake_src_prepare
-}
